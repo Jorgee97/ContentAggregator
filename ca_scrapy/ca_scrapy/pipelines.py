@@ -32,12 +32,6 @@ class CaScrapyPipeline(object):
         self.client.close()
 
     def process_item(self, item, spider):
-        valid = True
-        for data in item:
-            if not data:
-                valid = False
-                raise DropItem("Missing {0}".format(data))
-        if valid:
-            self.db[self.mongo_collection].insert(dict(item))
+        self.db[self.mongo_collection].insert(dict(item))
         return item
 

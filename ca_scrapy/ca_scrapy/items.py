@@ -13,3 +13,4 @@ class CaScrapyItem(scrapy.Item):
     # name = scrapy.Field()
     article_name = Field()
     url = Field()
+    source = Field()

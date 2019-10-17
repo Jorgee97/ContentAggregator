@@ -14,6 +14,7 @@ class VergeSpider(scrapy.Spider):
             article = Selector(text=article)
 
             item = CaScrapyItem()
+            item['source'] = "theverge.com"
             item['url'] = article.xpath('//a/@href').get()
             item['article_name'] = article.css('a::text').get()
             yield item
