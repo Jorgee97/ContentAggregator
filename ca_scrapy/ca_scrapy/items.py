@@ -7,6 +7,7 @@
 
 import scrapy
 from scrapy.item import Item, Field
+from datetime import datetime
 
 class CaScrapyItem(scrapy.Item):
     # define the fields for your item here like:
@@ -14,3 +15,4 @@ class CaScrapyItem(scrapy.Item):
     article_name = Field()
     url = Field()
     source = Field()
+    date = Field()

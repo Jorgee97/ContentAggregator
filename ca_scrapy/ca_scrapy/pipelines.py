@@ -7,6 +7,7 @@
 import pymongo
 
 from scrapy.exceptions import DropItem
+from datetime import datetime
 
 class CaScrapyPipeline(object):
     def __init__(self, mongo_server, mongo_port, mongo_db, mongo_collection):
@@ -32,6 +33,7 @@ class CaScrapyPipeline(object):
         self.client.close()
 
     def process_item(self, item, spider):
+        item.setdefault('date', str(datetime.now().date())) 
         self.db[self.mongo_collection].insert(dict(item))
         return item
 
