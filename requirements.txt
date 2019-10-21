@@ -1,3 +1,5 @@
 flask
 pymongo
+mongoengine
+flask_mongoengine
 scrapy
