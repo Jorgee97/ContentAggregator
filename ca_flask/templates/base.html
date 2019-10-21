@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title>{% block title %}{% endblock %} - Coreman </title>
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+<body class="bg-gray-200">
+    <div class="flex flex-row w-11/12 mx-auto mt-10 shadow-lg bg-white rounded h-full">
+        {% for source in sources %}
+        <div class="flex flex-col p-4 flex-wrap">
+            <a href="http://{{ source }}" target="_blank" class="font-bold text-2xl hover:text-blue-600 pl-2" href="">{{ source }}</a>
+            <ul>
+                {% for article in articles %}
+                {% if article.source == source %}
+                <li><a target="_blank" class="p-2 text-sm hover:text-blue-700" href="{{ article.url }}">{{ article.article_name }}</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
